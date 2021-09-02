@@ -11,7 +11,8 @@
     <!-- Bootstrap 5  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <!-- font awesome  -->
+    <script src="https://kit.fontawesome.com/6ecc7d3ea8.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Archive</title>
     <style>
@@ -21,8 +22,18 @@
 
         .card-img-top {
             width: 100%;
-            height: 25vw;
+            max-height: 300px;
             object-fit: cover;
+        }
+
+        .fas {
+            font-size: 50px;
+        }
+
+        @media (max-width: 575px) {
+            .card-img-top {
+                max-height: 700px;
+            }
         }
     </style>
 </head>
@@ -30,7 +41,8 @@
 <body class=" text-center bg-light">
     <div style="height: 5px; background-color: blueviolet;" class="bg-primary mb-5"></div>
     <section class="container">
-        <h1 id="headingText" class="my-3">book<span class="text-primary">Hub</span></h1>
+        <i class="fas fa-book-reader"></i>
+        <h1 id="headingText" class="">book<span class="text-primary">Hub</span></h1>
         <div class="input-group mb-3 w-75 mx-auto my-5">
             <input id="search-field" type="text" class="form-control" placeholder="Input a book name or keyword"
                 aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -48,6 +60,7 @@
         <!-- Books  -->
         <div id="div-container" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4"></div>
     </section>
+
     <!-- Bootstrap script  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

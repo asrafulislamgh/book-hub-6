@@ -10,6 +10,8 @@ const loadBook = () => {
   const searchText = document.getElementById("search-field");
   const url = `http://openlibrary.org/search.json?q=${searchText.value}`;
   searchText.value = "";
+  const divContainer = document.getElementById("div-container");
+  divContainer.innerHTML = "";
   document.getElementById("search-result-found").style.display = "none";
   document.getElementById("spinner").classList.remove("d-none");
   fetch(url)
