@@ -8,7 +8,7 @@ searchField.addEventListener("keyup", (event) => {
 
 const loadBook = () => {
   const searchText = document.getElementById("search-field");
-  const url = `http://openlibrary.org/search.json?q=${searchText.value}`;
+  const url = `https://openlibrary.org/search.json?q=${searchText.value}`;
   searchText.value = "";
   const divContainer = document.getElementById("div-container");
   divContainer.innerHTML = "";
