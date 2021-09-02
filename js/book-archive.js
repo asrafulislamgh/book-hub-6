@@ -13,16 +13,12 @@ const loadBook = () => {
   const url = `https://openlibrary.org/search.json?q=${searchText.value}`;
   const divContainer = document.getElementById("div-container");
   divContainer.innerHTML = "";
-  console.log("Outside");
-  console.log(searchText.value);
-  console.log(url);
   if (searchText.value === "") {
     document.getElementById("search-result-found").innerText =
       "Please type one or more keywords of your desired book!";
     document.getElementById("search-result-found").style.display = "block";
     searchText.value = "";
   } else {
-    console.log("inside");
     document.getElementById("spinner").classList.remove("d-none");
     document.getElementById("search-result-found").style.display = "none";
     searchText.value = "";
