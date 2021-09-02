@@ -10,6 +10,7 @@ const loadBook = () => {
   const searchText = document.getElementById("search-field");
   const url = `http://openlibrary.org/search.json?q=${searchText.value}`;
   searchText.value = "";
+  document.getElementById("search-result-found").style.display = "none";
   document.getElementById("spinner").classList.remove("d-none");
   fetch(url)
     .then((response) => response.json())
@@ -17,14 +18,15 @@ const loadBook = () => {
 };
 const searchBook = (data) => {
   const books = data.docs;
+  const divContainer = document.getElementById("div-container");
+  divContainer.innerHTML = "";
   document.getElementById(
     "search-result-found"
   ).innerText = `Total found: ${data.numFound} items`;
+  document.getElementById("search-result-found").style.display = "block";
   if (data.numFound === 0) {
     document.getElementById("spinner").classList.add("d-none");
   }
-  const divContainer = document.getElementById("div-container");
-  divContainer.innerHTML = "";
   books.forEach((book) => {
     const div = document.createElement("div");
     div.innerHTML = `
