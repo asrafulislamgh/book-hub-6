@@ -42,14 +42,16 @@ const searchBook = (data) => {
                     <p class="card-text">Author: <b>${
                       book.author_name ? book.author_name : "Not Given"
                     }</b></p>
-                    <p class="card-text">Publisher: <b>${
-                      book.publisher ? book.publisher : "Not Given"
-                    }</b></p>
                     <p class="card-text">First Publication: <b>${
                       book.first_publish_year
                         ? book.first_publish_year
                         : "Not Given"
                     }</b></p>
+                    <p class="card-text text-truncate" title="${
+                      book.publisher
+                    }">Publisher: <b>${
+      book.publisher ? book.publisher : "Not Given"
+    }</b></p>
                 </div>
             </div>
         </div>

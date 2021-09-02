@@ -4,30 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Google Font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Archive</title>
+    <style>
+        #headingText {
+            font-family: 'Audiowide', cursive;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 25vw;
+            object-fit: cover;
+        }
+    </style>
 </head>
 
-<body class="container text-center bg-light">
-    <h1>Book Archive</h1>
-    <div class="input-group mb-3 w-75 mx-auto my-5">
-        <input id="search-field" type="text" class="form-control" placeholder="Input a book name"
-            aria-label="Recipient's username" aria-describedby="basic-addon2">
-        <span class="input-group-text" onclick="loadBook()" role="button" id="search-btn">Search</span>
-    </div>
-    <!-- search Result  -->
-    <h5 id="search-result-found" class="my-3"></h5>
+<body class=" text-center bg-light">
+    <div style="height: 5px; background-color: blueviolet;" class="bg-primary mb-5"></div>
+    <section class="container">
+        <h1 id="headingText" class="my-3">book<span class="text-primary">Hub</span></h1>
+        <div class="input-group mb-3 w-75 mx-auto my-5">
+            <input id="search-field" type="text" class="form-control" placeholder="Input a book name or keyword"
+                aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <span class="input-group-text bg-primary text-white" onclick="loadBook()" role="button"
+                id="search-btn">Search</span>
+        </div>
+        <!-- search Result  -->
+        <h5 id="search-result-found" class="my-3"></h5>
 
-    <!-- Spinner  -->
-    <div id="spinner" class="spinner-grow d-none my-5" role="status">
-        <span class="visually-hidden">Loading...</span>
-    </div>
+        <!-- Spinner  -->
+        <div id="spinner" class="spinner-grow d-none my-5" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
 
-    <!-- Books  -->
-    <div id="div-container" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4"></div>
+        <!-- Books  -->
+        <div id="div-container" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4"></div>
+    </section>
     <!-- Bootstrap script  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
