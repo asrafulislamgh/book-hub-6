@@ -11,14 +11,25 @@ searchField.addEventListener("keyup", (event) => {
 const loadBook = () => {
   const searchText = document.getElementById("search-field");
   const url = `https://openlibrary.org/search.json?q=${searchText.value}`;
-  searchText.value = "";
   const divContainer = document.getElementById("div-container");
   divContainer.innerHTML = "";
-  document.getElementById("search-result-found").style.display = "none";
-  document.getElementById("spinner").classList.remove("d-none");
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => searchBook(data));
+  console.log("Outside");
+  console.log(searchText.value);
+  console.log(url);
+  if (searchText.value === "") {
+    document.getElementById("search-result-found").innerText =
+      "Please type one or more keywords of your desired book!";
+    document.getElementById("search-result-found").style.display = "block";
+    searchText.value = "";
+  } else {
+    console.log("inside");
+    document.getElementById("spinner").classList.remove("d-none");
+    document.getElementById("search-result-found").style.display = "none";
+    searchText.value = "";
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => searchBook(data));
+  }
 };
 // Manipulating DOM
 const searchBook = (data) => {
@@ -37,9 +48,11 @@ const searchBook = (data) => {
     div.innerHTML = `
             <div class="col">
             <div class="card">
-                <img src="https://covers.openlibrary.org/b/id/${
+                <img src="${
                   book.cover_i
-                }-L.jpg" class="card-img-top" alt="...">
+                    ? `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
+                    : `img/img.jpg`
+                }" class="card-img-top" alt="...">
                 <div class="card-body text-start">
                     <h5 class="card-title">${
                       book.title ? book.title : "Not Given"
