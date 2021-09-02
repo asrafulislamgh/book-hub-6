@@ -1,3 +1,4 @@
+//Enabaling search box to hit enter
 const searchField = document.getElementById("search-field");
 searchField.addEventListener("keyup", (event) => {
   event.preventDefault();
@@ -6,6 +7,7 @@ searchField.addEventListener("keyup", (event) => {
   }
 });
 
+//Fetching data from API
 const loadBook = () => {
   const searchText = document.getElementById("search-field");
   const url = `https://openlibrary.org/search.json?q=${searchText.value}`;
@@ -18,6 +20,7 @@ const loadBook = () => {
     .then((response) => response.json())
     .then((data) => searchBook(data));
 };
+// Manipulating DOM
 const searchBook = (data) => {
   const books = data.docs;
   const divContainer = document.getElementById("div-container");
