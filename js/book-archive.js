@@ -50,7 +50,7 @@ const searchBook = (data) => {
             <div class="card">
                 <img src="${
                   book.cover_i
-                    ? `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
+                    ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
                     : `img/img.jpg`
                 }" class="card-img-top" alt="...">
                 <div class="card-body text-start">
